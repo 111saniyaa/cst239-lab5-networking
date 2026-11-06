@@ -63,7 +63,9 @@ public class ParserService {
 
     private String processFind(String[] parts) {
         // STUDENT WORK: validate FIND name and return matching people as JSON.
-        throw new UnsupportedOperationException("Complete FIND command");
+        requireLength(parts, 2, "Usage: FIND name");
+        List<Person> found = dataService.findByName(parts[1]);
+        return json(found);
     }
 
     private int parseInt(String text, String errorMessage) {
