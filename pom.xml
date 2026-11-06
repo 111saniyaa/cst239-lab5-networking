@@ -8,9 +8,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.gcu.cst239</groupId>
-<artifactId>lab5-networking</artifactId>
-<version>1.0.0</version>
-<name>CST-239 Lab 5 Networking</name>
+    <artifactId>lab5-networking</artifactId>
+    <version>1.0.0</version>
+    <name>CST-239 Lab 5 Networking</name>
 
 
     <properties>
@@ -19,19 +19,24 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <!-- Project dependencies will be added in later labs. -->
     <dependencies>
-    <dependency>            <groupId>com.fasterxml.jackson.core</groupId>            <artifactId>jackson-databind</artifactId>            <version>2.20.0</version>        </dependency>        <!-- JUnit 5 (Jupiter) -->        <dependency>            <groupId>org.junit.jupiter</groupId>            <artifactId>junit-jupiter</artifactId>            <version>5.13.4</version>            <scope>test</scope>        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+        <!-- JUnit 5 (Jupiter) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.13.4</version>
+            <scope>test</scope>
+        </dependency>
+        
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.15.0</version>
-            </plugin>
-        </plugins>
-    </build>
+    
+
 
 </project>
