@@ -1,7 +1,7 @@
-package edu.gcu.cst239.sharma.saniya;
+package edu.gcu.cst239.sharma.saniya.model;
 
 public class Person {
-    private int id;
+     private int id;
     private String name;
     private int age;
 
@@ -32,5 +32,7 @@ public class Person {
         return "Person{id=" + id + ", name='" + name + "', age=" + age + "}";
     }
 }
+
+
 
 
