@@ -2,7 +2,7 @@ package edu.gcu.cst239.sharma.saniya.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import edu.gcu.cst239.sharma.saniya.model.Person; 
+import edu.gcu.cst239.sharma.saniya.model.Person;  
 public class DataService {
     private final List<Person> people;
 
