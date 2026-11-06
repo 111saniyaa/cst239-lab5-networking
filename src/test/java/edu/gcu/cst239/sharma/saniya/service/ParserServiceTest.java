@@ -55,5 +55,11 @@ class ParserServiceTest {
         JsonNode result = objectMapper.readTree(parserService.processMessage("DANCE"));
         assertTrue(result.get(0).asText().startsWith("ERROR:"));
     }
+    @Test 
+    void findReturnsMatchingPeople() throws Exception {
+        JsonNode result = objectMapper.readTree(parserService.processMessage("FIND al"));
+        assertEquals(1, result.size());
+        assertEquals("Alice", result.get(0).get("name").asText());
+    }
 }
 
