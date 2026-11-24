@@ -2,7 +2,8 @@ package edu.gcu.cst239.sharma.saniya.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import edu.gcu.cst239.sharma.saniya.model.Person;  
+import edu.gcu.cst239.sharma.saniya.model.Person;
+
 public class DataService {
     private final List<Person> people;
 
@@ -17,25 +18,25 @@ public class DataService {
                 new Person(3, "Charlie", 35)));
     }
 
-    public List<Person> getPeople() {
+    public synchronized List<Person> getPeople() {
         return List.copyOf(people);
     }
 
-    public Person getPerson(int id) {
+    public synchronized Person getPerson(int id) {
         return people.stream()
                 .filter(person -> person.getId() == id)
                 .findFirst()
                 .orElse(null);
     }
 
-    public boolean addPerson(Person person) {
+    public synchronized boolean addPerson(Person person) {
         if (getPerson(person.getId()) != null) {
             return false;
         }
         return people.add(person);
     }
 
-    public Person deletePerson(int id) {
+    public synchronized Person deletePerson(int id) {
         Person person = getPerson(id);
         if (person != null) {
             people.remove(person);
@@ -43,7 +44,7 @@ public class DataService {
         return person;
     }
 
-    public List<Person> findByName(String text) {
+    public synchronized List<Person> findByName(String text) {
         String term = text.toLowerCase();
         return people.stream()
                 .filter(person -> person.getName().toLowerCase().contains(term))
