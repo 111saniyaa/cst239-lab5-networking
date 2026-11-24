@@ -18,16 +18,20 @@ public class Server {
     }
 
     public void start(int port) {
+    try (ServerSocket serverSocket = new ServerSocket(port)) {
         System.out.println("Server listening on port " + port);
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
-            while (true) {
-                Socket clientSocket = serverSocket.accept();
-                handleClient(clientSocket);
-            }
-        } catch (IOException ex) {
-            System.err.println("Server error: " + ex.getMessage());
+
+        while (true) {
+            Socket clientSocket = serverSocket.accept();
+            Runnable worker = new ServerWorker(clientSocket, parserService);
+            new Thread(worker).start();
         }
+
+    } catch (IOException e) {
+        System.err.println("Server stopped: " + e.getMessage());
     }
+}
+    
 
     private void handleClient(Socket socket) {
         System.out.println("Client connected: " + socket.getRemoteSocketAddress());
